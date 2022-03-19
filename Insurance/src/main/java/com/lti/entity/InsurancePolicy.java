@@ -1,18 +1,25 @@
 package com.lti.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDate; 
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="Insurance_policy")
 public class InsurancePolicy {
 
 	@Id
@@ -24,7 +31,7 @@ public class InsurancePolicy {
 	private String policyname;
 	
 	@Column(name="policy_PaymentDate")
-	private LocalDateTime paymentDate; 
+	private LocalDate paymentDate; 
 	
 
 	@Column(name="policy_startDate")
@@ -32,7 +39,7 @@ public class InsurancePolicy {
 	
 
 	@Column(name="policy_EndDate")
-	private Date endDate;
+	private LocalDate endDate;
 	
 	@Column(name="insured_amt")
 	private double amount;
@@ -45,25 +52,36 @@ public class InsurancePolicy {
 	@Column(name="price")
 	private double price;
 	
-	@ManyToOne
-	@JoinColumn(name="id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="cust_id")
 	private CustomerDetails customerdetails;
 	
-	
-	@OneToOne
-	@JoinColumn(name="vehical_number")
+	 @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	 @JoinColumn(name="vehical_number")
 	private  VehicalDetail vdetail2;
 	
+	 
+	 
+	 
+	public InsurancePolicy() {
 	
+		this.paymentDate = LocalDate.now();
+		this.startDate = LocalDate.now();
+		this.endDate= LocalDate.now();
+	}
+
+
+	/*
 
 	@OneToOne(mappedBy = "ipolicy3")
-	private List<InsuranceClaim> iclaim3;
+	private List<InsuranceClaim> iclaim3;*/
 	
-
+	
+/*
 	@OneToOne(mappedBy = "ipolicy4")
 	private List<RenewInsurance> renewinsurance;
 
-
+*/
 	public int getPolicy_id() {
 		return policy_id;
 	}
@@ -84,12 +102,12 @@ public class InsurancePolicy {
 	}
 
 
-	public LocalDateTime getPaymentDate() {
+	public LocalDate getPaymentDate() {
 		return paymentDate;
 	}
 
 
-	public void setPaymentDate(LocalDateTime paymentDate) {
+	public void setPaymentDate(LocalDate paymentDate) {
 		this.paymentDate = paymentDate;
 	}
 
@@ -104,12 +122,12 @@ public class InsurancePolicy {
 	}
 
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
@@ -163,7 +181,7 @@ public class InsurancePolicy {
 		this.vdetail2 = vdetail2;
 	}
 
-
+/*
 	public List<InsuranceClaim> getIclaim3() {
 		return iclaim3;
 	}
@@ -173,7 +191,8 @@ public class InsurancePolicy {
 		this.iclaim3 = iclaim3;
 	}
 
-
+*/
+	/*
 	public List<RenewInsurance> getRenewinsurance() {
 		return renewinsurance;
 	}
@@ -182,6 +201,6 @@ public class InsurancePolicy {
 	public void setRenewinsurance(List<RenewInsurance> renewinsurance) {
 		this.renewinsurance = renewinsurance;
 	}
-	
+	*/
 	
 }

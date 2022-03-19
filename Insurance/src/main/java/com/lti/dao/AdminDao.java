@@ -1,4 +1,4 @@
-package com.Insurance.dao;
+package com.lti.dao;
 
 import org.springframework.stereotype.Component;
 

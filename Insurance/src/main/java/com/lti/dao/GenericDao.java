@@ -1,4 +1,4 @@
-package com.Insurance.dao;
+package com.lti.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

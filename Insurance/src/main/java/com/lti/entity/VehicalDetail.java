@@ -2,8 +2,10 @@ package com.lti.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="vehicle_Detail")
+@Table(name="vehical_Detail")
 public class VehicalDetail {
  
 	
@@ -35,17 +37,22 @@ public class VehicalDetail {
  @Column(name="vehical_Color")
  private String color;
  
-    @ManyToOne
-	@JoinColumn(name="id")
-	private CustomerDetails customerdetails2;
  
+ @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+ @JoinColumn(name="cust_id")
+ private CustomerDetails customerdetails2;
+    
+	
+    
+
+	/*
 
 	@OneToOne(mappedBy = "vdetail2")
 	private List<InsurancePolicy> ipolicy2;
 	
-
+	
 	@OneToOne(mappedBy = "vdetail3")
-	private List<InsuranceClaim> iclaim4;
+	private List<InsuranceClaim> iclaim4;*/
 
 
 	public String getId() {
@@ -107,7 +114,7 @@ public class VehicalDetail {
 		this.customerdetails2 = customerdetails2;
 	}
 
-
+/*
 	public List<InsurancePolicy> getIpolicy2() {
 		return ipolicy2;
 	}
@@ -128,5 +135,5 @@ public class VehicalDetail {
 	}
 	
 	
-	
+	*/
 }

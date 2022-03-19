@@ -15,27 +15,41 @@ import org.hibernate.annotations.Table;
 public class CustomerDetails {
 
 	
+	public CustomerDetails() {
+		
+		name="";
+		email="";
+		dateofBirth="";
+		contactnumber=0;
+		pass="";
+		Address="";
+	}
+
+
+	
+
+
 	@Id
 	@GeneratedValue
 	private int id;
 	
 	
-	@Column(name="Name")
+	@Column(name="NAME")
 	private String name;
 	
-	@Column(name="email")
+	@Column(name="EMAIL")
 	private String email;
 	
 	@Column(name="DOB")
-	private String dateOfBirth;
+	private String dateofBirth;
 	
-	@Column(name="contact_number")
+	@Column(name="CONTACT_NUMBER")
 	private long contactnumber;
 	
-	@Column(name="address")
+	@Column(name="ADDRESS")
 	private String Address;
 	
-	@Column(name="password")
+	@Column(name="PASSWORD")
 	private String pass;
 	
 	
@@ -45,11 +59,11 @@ public class CustomerDetails {
 	@OneToMany(mappedBy = "customerdetails")
 	private List<InsurancePolicy> ipolicy;
 	
-
+/*
 	@OneToMany(mappedBy = "customerdetails3")
 	private List<InsuranceClaim> iclaim2;
 
-
+*/
 	public int getId() {
 		return id;
 	}
@@ -81,12 +95,12 @@ public class CustomerDetails {
 
 
 	public String getDateOfBirth() {
-		return dateOfBirth;
+		return dateofBirth;
 	}
 
 
 	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+		this.dateofBirth = dateOfBirth;
 	}
 
 
@@ -115,8 +129,8 @@ public class CustomerDetails {
 	}
 
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPass(String password) {
+		this.pass = password;
 	}
 
 
@@ -129,7 +143,7 @@ public class CustomerDetails {
 		this.vdetail = vdetail;
 	}
 
-
+/*
 	public List<InsurancePolicy> getIpolicy() {
 		return ipolicy;
 	}
@@ -149,7 +163,7 @@ public class CustomerDetails {
 		this.iclaim2 = iclaim2;
 	}
 	
-	
+	*/
 	
 	
 }
