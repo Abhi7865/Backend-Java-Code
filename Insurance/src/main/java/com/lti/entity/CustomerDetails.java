@@ -55,9 +55,9 @@ public class CustomerDetails {
 	
 	@OneToMany(mappedBy = "customerdetails2")
 	private List<VehicalDetail> vdetail;
-
+/*
 	@OneToMany(mappedBy = "customerdetails")
-	private List<InsurancePolicy> ipolicy;
+	private List<InsurancePolicy> ipolicy;*/
 	
 /*
 	@OneToMany(mappedBy = "customerdetails3")

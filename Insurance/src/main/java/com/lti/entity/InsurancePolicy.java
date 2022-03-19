@@ -1,9 +1,7 @@
 package com.lti.entity;
 
-import java.time.LocalDate; 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;  
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,11 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+ 
 
 @Entity
 @Table(name="Insurance_policy")
@@ -52,9 +48,10 @@ public class InsurancePolicy {
 	@Column(name="price")
 	private double price;
 	
+	/*
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="cust_id")
-	private CustomerDetails customerdetails;
+	private CustomerDetails customerdetails;*/
 	
 	 @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	 @JoinColumn(name="vehical_number")
@@ -160,7 +157,7 @@ public class InsurancePolicy {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
+/*
 
 	public CustomerDetails getCustomerdetails() {
 		return customerdetails;
@@ -169,7 +166,7 @@ public class InsurancePolicy {
 
 	public void setCustomerdetails(CustomerDetails customerdetails) {
 		this.customerdetails = customerdetails;
-	}
+	}*/
 
 
 	public VehicalDetail getVdetail2() {
